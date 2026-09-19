@@ -1,9 +1,9 @@
 <html>
     <head>
-        <title>BonziWORLD: BonziBUDDY Chat!</title>
+        <title>ColorsWORLD</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="description" content="Biasoft Introduces BonziWORLD, a new fresh BW with QOL and styling improvements, and coins.">
-        <meta name="keywords" content="BonziBUDDY, BonziWORLD, Chat, Windows XP">
+        <meta name="keywords" content="BonziBUDDY, BonziWORLD, Chat, Windows XP, ColorsWORLD">
         <meta name="author" content="Agent Bronze, BIA, Jy">
         <link rel="icon" href="./favicon.png">
         <link rel="preload" href="/Tahoma.woff" as="font" crossOrigin="anonymous" type="font/woff">
@@ -85,12 +85,12 @@
         
         <!--README and Version-->
         <div id="readme_block">
-            Welcome to BonziWORLD!<br>
+            Welcome to ColorsWORLD!<br>
             <b>Crosscolors are enabled</b>
             <hr>
             <a href="./readme.html" target="_self">README/HELP</a> &nbsp;<a href="./readme.html#new" target="_self">How To Get Coins</a> 
         </div>
-        <div id="version">Version 1.1.0</div>
+        <div id="version">Version 0.0.1 (alpha)</div>
 
 
             <!--Very hacky method of preloading-->
@@ -167,9 +167,9 @@
                 <hr>
             </div>
             <div id="ec_main" style="position:absolute;top:0;left:0;display:none;">
-                <h1 class="wrapper_title">BonziWORLD Coins Menu</h1>
+                <h1 class="wrapper_title">ColorsWORLD Coins Menu</h1>
                 <p>Coins: <span placeId="Shekels">0</span></p>
-                <p>BonziCOIN Slots: <span placeId="slots">20</span></p>
+                <p>ColorsCOIN Slots: <span placeId="slots">20</span></p>
                 <hr>
                 <p>Right click or hold+tap a user then press "Gift Coins" to give your friends some coins!</p>
                 <button class="msBtn"onclick="let pass = prompt('What password do you want to use?'); socket.emit('coins',{action:'save',pass:pass});">Save Progress</button>
@@ -185,7 +185,7 @@
                     <div style="border: 1px solid black;display:flex;flex-direction:column;width:50%;">
                         <input type="number" id="queues" placeholder="BonziCOIN Queues (Optional)">
                         <button class="msBtn" onclick="ques++;stat('Mining...');let ll=parseInt($('queues').value);socket.emit('coins',{action:'mine'});">
-                            Mine BonziCOIN
+                            Mine ColorsCOIN
                             <span>
                                 <img src="./img/shekel.gif" width="20" height="auto">
                             </span>
@@ -202,7 +202,7 @@
                     <h5>Shop</h5>
                     <div style="border: 1px solid black;display:flex;flex-direction:column;width:400px;max-height:100">
                         <button class="msBtn" placeId="ec" onclick="ques++;stat('Purchasing BonziCOIN Slot (Increases your BonziCOIN amount when mining)');socket.emit('coins',{action:'buy',target:'upgrade_bsSlot'});">
-                            Buy 1 BonziCOIN Slot<hr>
+                            Buy 1 ColorsCOIN Slot<hr>
                             Cost: 10 
                             <span>
                                 <img src="./img/shekel.gif" width="20" height="auto">
@@ -223,7 +223,7 @@
                 <hr>
             </div>
             <div id="ec_leader"style="position:absolute;top:0;left:0;display:none;">
-                <h1 class="wrapper_title">BonziWORLD Leaderboard</h1>
+                <h1 class="wrapper_title">ColorsWORLD Leaderboard</h1>
                 <p>See who is the most rich person!</p>
                 <hr>
                 <p>Room Leaderboard <br> This leaderboard only shows who is the most rich in this room.</p>
@@ -237,7 +237,7 @@
                 </ol>
             </div>
             <div id="ec_shop" style="position:absolute;top:0;left:0;display:none;">
-                <h1 class="wrapper_title">BonziWORLD Coins Menu</h1>
+                <h1 class="wrapper_title">ColorsWORLD Coins Menu</h1>
                 
                 <p class="wrapper_p2">Shop Items</p>
                 <!-- Row 1 -->
@@ -371,12 +371,12 @@
             </div>
             <div id="coins" class="icon" style="position:absolute;top:-10px;left:100px;" onclick="clientcommands['applets_coins']()">
                 <img src="./img/shekel.gif">
-                BonziCOIN Menu
+                ColorsCOIN Menu
             </div>
             <div id="log_cont" style="display:none;">
                 <p id="log_title">Message Log<button class="log_close" id="log_close"></button></p>
                 <div id="log_body">
-                    <p>Welcome to BonziWORLD!</p>
+                    <p>Welcome to ColorsWORLD!</p>
                 </div>
             </div>
             <marquee scrollamount="20" id="banner">ALERT: Piss</marquee>
@@ -386,7 +386,7 @@
         <div id="error_page" style="display: none;">
             <div class="error_message" id="error_disconnect" style="display:none;">
                 <img src="./img/error_disconnect.png"><br>
-                <h1>BIAWORLD.HTML has encountered an error and needs to close.</h1>
+                <h1>COLORSWORLD.EXE has encountered an error and needs to close.</h1>
                 Nah, but seriously there was an error and you got disconnected from the server. Chances are, your internet just died out for a brief moment or your device went to sleep. Otherwise the server just screwed up.<br><br>
                 You will automatically reconnect. If that doesn't work try to Reload<br><br>
                 <a href="/">Reload?</a><br><br>
@@ -394,8 +394,8 @@
             </div>
             <div class="error_message" id="error_restart" style="display:none;">
                 <img src="./img/error_disconnect.png"><br>
-                <h1>BonziWORLD.exe is restaring</h1>
-                Fune has restarted BonziWORLD.org. Please wait patiently. It is possible that this is due to a new update on BonziWORLD.org<br><br>
+                <h1>ColorsWORLD.exe is restaring</h1>
+                TBCG has restarted ColorsWORLD.net. Please wait patiently. It is possible that this is due to a new update on ColorsWORLD.net<br><br>
                 You will automatically reconnect. If that doesn't work try to Reload<br><br>
                 <a href="/">Reload?</a><br><br>
                 Room ID - <span id="error_room">NONE</span>
