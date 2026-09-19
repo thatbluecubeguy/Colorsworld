@@ -340,7 +340,7 @@ async function clipboard(text) {
             if(document.body.innerHTML.includes(` <button id="minibw" class="msBtn"style="max-height:60px;max-width:100px;">Open Mini BW`))return;
 
           new msWindow('Applets',`  
-                  <h1>BonziWORLD Applets</h1>
+                  <h1>ColorsWORLD Applets</h1>
                   <div id="appletsview">
                       <div class="applets_item">
                         <img src="/img/assets/radio.png" width="100" height="100"/>
@@ -348,7 +348,7 @@ async function clipboard(text) {
                       </div>
                        <div class="applets_item">
                         <img src="/img/logo_readme.png" width="100" height="auto"/>
-                        <button id="minibw" class="msBtn"style="max-height:60px;max-width:100px;">Open Mini BonziWORLD</button>
+                        <button id="minicw" class="msBtn"style="max-height:60px;max-width:100px;">Open Mini ColorsWORLD</button>
                       </div>
                       <div class="applets_item">
                         <img src="/img/assets/notepad.png" width="50" height="auto"/>
@@ -356,7 +356,7 @@ async function clipboard(text) {
                       </div>
                       <div class="applets_item">
                         <img src="https://bonzi.gay/img/readme/logo.png" width="100" height="auto"/>
-                        <button id="bonzigay" class="msBtn"style="max-height:60px;max-width:100px;">Open Bonzi.Gay <h3>(New!)</h3></button>
+                        <button id="bonzigay" class="msBtn"style="max-height:60px;max-width:100px;">Open Bonzi.Gay</button>
                       </div>
                       <div class="applets_item">
                         <img src="/img/assets/browser.png" width="50" height="auto"/>
@@ -368,7 +368,7 @@ async function clipboard(text) {
 {name: "Close"}]);
 
           setTimeout(() => {
-            ["jukebox","minibw","notepad","browser","bonzigay"].forEach(applet => {
+            ["jukebox","minicw","notepad","browser","bonzigay"].forEach(applet => {
                 $(applet).onclick = () => {clientcommands["applets_"+applet]();}
             });
             },1100);
@@ -418,14 +418,14 @@ async function clipboard(text) {
                 `);
               }
         },
-        "applets_minibw": () => {
-            if(document.body.innerHTML.includes(`<button style="width:80px;height:30px;" class="msBtn" onclick="$('dialoguemini').innerText = 'Mini BonziWORLD';$('minicont').style.`))return;
+        "applets_minicw": () => {
+            if(document.body.innerHTML.includes(`<button style="width:80px;height:30px;" class="msBtn" onclick="$('dialoguemini').innerText = 'Mini ColorsWORLD';$('minicont').style.`))return;
             if($('content').innerHTML.includes('<iframe id="minicont"'))return;
-            new msWindow('Mini BonziWORLD',`
+            new msWindow('Mini ColorsWORLD',`
                 <div id="minicont"style="display:flex;flex-direction:column;width:max-content;max-width:`+(window.innerWidth/1.8)+`;">
                 <p id="dialoguemini">Useful for things such as being in<br>multiple rooms or whatever.</p>
                 <iframe src="index.html" width="`+(window.innerWidth/2)+`" height="400">Loading...</iframe></div>
-                    <button style="width:80px;height:30px;" class="msBtn" onclick="$('dialoguemini').innerText = 'Mini BonziWORLD';$('minicont').style.width = '30px';$('minicont').style.height = '30px';var r = this.onclick;this.innerText = 'Display Mini BW'; this.onclick = () => {this.onclick = r; $('minicont').style.width='`+(window.innerWidth/2+100)+`px'; $('minicont').style.height = '500px'; this.innerText = 'Hide Mini BW'};">Hide Mini BW</button>
+                    <button style="width:80px;height:30px;" class="msBtn" onclick="$('dialoguemini').innerText = 'Mini ColorsWORLD';$('minicont').style.width = '30px';$('minicont').style.height = '30px';var r = this.onclick;this.innerText = 'Display Mini CW'; this.onclick = () => {this.onclick = r; $('minicont').style.width='`+(window.innerWidth/2+100)+`px'; $('minicont').style.height = '500px'; this.innerText = 'Hide Mini CW'};">Hide Mini CW</button>
 
                 `, undefined, undefined, undefined, undefined, [
 {name: "Close"}]);
@@ -493,7 +493,7 @@ BonziCOINS Menu `,`
     },
     "applets_browser": () => {
         new msWindow(`Internet Browser`,`
-             <iframe src="https://soyjak.st" width="600" height="450" id="browser"></iframe>
+             <iframe src="https://google.com" width="600" height="450" id="browser"></iframe>
             <div style="display:flex;height:50px;width:600px;flex-direction:row;">
                 <input type="text" id="browser_url" placeholder="any HTTPS site here... (some do not work)" style="width:75%"></input>
                  <button class="msBtn"class="msBtn" onclick="$('browser').src = $('browser_url').value;" style="width:25%;">Go</button>
@@ -881,10 +881,17 @@ BonziCOINS Menu `,`
                                 socket.emit("talk", `Hey, ${passthrough.pub.name}!`);
                             }
                         },
+                          {
+                            type: 0,
+                            name: "Hello, NAME!",
+                            callback: (passthrough)=>{
+                                socket.emit("talk", `Hello, ${passthrough.pub.name}!`);
+                            }
+                        },                        
                       ]
                     },
                     {type:0,name:"Gift Coins",callback:(usar)=>{
-                        let r = prompt("How many BonziCOIN to send?");
+                        let r = prompt("How many ColorsCOIN to send?");
                         let num = "0123456789".split("");
                         r = r == undefined || r == "" || !num.some(a => r.includes(a)) ? NaN : parseFloat(r);
                         socket.emit("coins",{action:"gift",target:usar.pub.guid,amt:r});
@@ -895,18 +902,18 @@ BonziCOINS Menu `,`
                         items: [
                             {
                                 type: 0,
-                                name: settings.under ? "BLOCKED" : "Call an Asshole",
+                                name: settings.under ? "Call an Asshole",
                                 callback: (passthrough)=>{
                                     socket.emit("command", {command: "asshole", param: passthrough.pub.name})
                                 }
                             },
-                            {
+                             {
                                 type: 0,
-                                name: "Notice Bulge",
+                                name: settings.under ? "Call Someone awesome",
                                 callback: (passthrough)=>{
-                                    socket.emit("command", {command: "owo", param: passthrough.pub.name})
+                                    socket.emit("command", {command: "awesome", param: passthrough.pub.name})
                                 }
-                            },
+                            },                           
                         ]
                     }
                 ]
@@ -1801,7 +1808,7 @@ BonziCOINS Menu `,`
                     var result = "";
                     for(let i=0;i<l;i++){result+=char[Math.floor(Math.random() * char.length)]}
                     var chanc = Math.floor(Math.random() * 1000);
-                    if(chanc > 980) result+= " RAIDEDZ BY EPIKQUE GEORGE DROYD NEGROID PROBALON AI DRONE";
+                    if(chanc > 980) result+= " BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH BEHH ";
                     return result;
                 }
                 let cmdlist = ["joke","fact","youtube","asshole","owo","heil","linux"];
