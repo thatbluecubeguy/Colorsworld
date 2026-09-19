@@ -749,6 +749,13 @@ async function clipboard(text) {
                                 socket.emit("talk", `Hey, ${passthrough.pub.name}!`);
                             }
                         },
+                        {
+                            type: 0,
+                            name: "Hello, NAME!",
+                            callback: (passthrough)=>{
+                                socket.emit("talk", `Hello, ${passthrough.pub.name}!`);
+                            }
+                        },                          
                       ]
                     },
                     {
@@ -757,30 +764,23 @@ async function clipboard(text) {
                         items: [
                             {
                                 type: 0,
-                                name: settings.under ? "BLOCKED" : "Call an Asshole",
+                                name: settings.under ? "Call an Asshole",
                                 callback: (passthrough)=>{
                                     socket.emit("command", {command: "asshole", param: passthrough.pub.name})
                                 }
                             },
-                            {
+                             {
                                 type: 0,
-                                name: "Notice Bulge",
+                                name: settings.under ? "Call someone Awesome.",
                                 callback: (passthrough)=>{
-                                    socket.emit("command", {command: "owo", param: passthrough.pub.name})
+                                    socket.emit("command", {command: "awesome", param: passthrough.pub.name})
                                 }
-                            },
+                            },                           
                             {
                                 type: 0,
                                 name: "Pastule",
                                 callback: (passthrough)=>{
                                     socket.emit("talk", passthrough.pub.name+" stop being a pastule.")
-                                }
-                            },
-                            {
-                                type: 0,
-                                name: settings.under ? "BLOCKED" : "Niggerify",
-                                callback: (passthrough)=>{
-                                    socket.emit("talk", passthrough.pub.name+" hey guess what, you're a nigger!")
                                 }
                             },
                             {
@@ -798,13 +798,6 @@ async function clipboard(text) {
                         type: 1,
                         name: "Fun (MOD)",
                         items: [
-                            {
-                                type: 0,
-                                name: "Jewify",
-                                callback: (passthrough)=>{
-                                    socket.emit("command", {command: "jewify", param: passthrough.id})
-                                }
-                            },
                             {
                                 type: 0,
                                 name: "Toggle Bless",
@@ -1183,14 +1176,14 @@ async function clipboard(text) {
         if(settings.welcome != welcomeversion){
             settings.welcome = welcomeversion;
             document.cookie = compileCookie(settings);
-            new msWindow("Welcome to BonziWORLD!",
-                `<h1>Welcome to BonziWORLD!</h1>
-                The worst place on the internet!<br>
+            new msWindow("Welcome to ColorsWORLD!",
+                `<h1>Welcome to ColorsWORLD!</h1>
+                The worst or the best place on the internet!<br>
                 By pressing "Accept" you agree to our <a href='tac.html' target="_blank">Terms & Conditions</a><br>
                 For more info, use the <a href='readme.html' target='_blank'>"README"</a><br>
-                <font color=red>DISCLAIMER! CONTENT MAY BE OFFENSIVE. IF YOU ARE SENSITIVE, DO NOT USE BONZIWORLD.<br>FOR MORE INFORMATION, READ THE TERMS AND CONDITIONS!</font><br><br>
-                Use /settings to configure BonziWORLD to your liking! Custom backgrounds were moved to settings.<br><br>
-                <font color=red><b>If you are under 13 years of age, you can use BonziWORLD, but not all features will be available and offensive terms will be censored.</b></font color=red>
+                <font color=red>DISCLAIMER! CONTENT MAY BE OFFENSIVE. IF YOU ARE SENSITIVE, DO NOT USE COLORSWORLD.<br>FOR MORE INFORMATION, READ THE TERMS AND CONDITIONS!</font><br><br>
+                Use /settings to configure ColorsWORLD to your liking! Custom backgrounds were moved to settings.<br><br>
+                <font color=red><b>If you are under 13 years of age, you can use ColorsWORLD, but not all features will be available and offensive terms will be censored.</b></font color=red>
                 `,
                     undefined, undefined, undefined, undefined, [{name: "ACCEPT (over 13)"}, {name: "ACCEPT (under 13)", callback: ()=>{settings.under = true; compileCookie(settings)}}]);
         }
