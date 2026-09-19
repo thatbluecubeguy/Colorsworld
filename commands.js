@@ -98,6 +98,12 @@ module.exports.commands = {
 			list: [{type: 0, text: "Hey, "+param+"!"}, {type: 0, text: "You're a fucking asshole!"}, {type: 1, anim: "grin_fwd"}, {type: 1, anim: "grin_back"}]
 		})
 	},
+    awesome: (user, param)=>{
+		user.room.emit("actqueue", {
+			guid: user.public.guid,
+			list: [{type: 0, text: "Hey, "+param+"!"}, {type: 0, text: "You're a fucking asshole!"}, {type: 1, anim: "grin_fwd"}, {type: 1, anim: "grin_back"}]	
+		})
+	},	
 	joke: (user, param)=>{
 		let joke = [];
 		jokes.start[Math.floor(Math.random()*jokes.start.length)].forEach(jk=>{
@@ -134,7 +140,7 @@ module.exports.commands = {
 	owo: (user, param)=>{
 		user.room.emit("actqueue", {
 			guid: user.public.guid,
-			list: [{type: 0, text: "This is command has been removed because it's made by Seamass."}]
+			list: [{type: 0, text: "This is command has been removed because it's made by a pdf file called Seamass."}]
 		})
 	},
 	pitch: (user, param)=>{
